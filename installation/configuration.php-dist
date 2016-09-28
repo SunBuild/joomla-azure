@@ -4,7 +4,7 @@ class JConfig {
 	public $offline_message = 'This site is down for maintenance.<br />Please check back again soon.';
 	public $display_offline_message = '1';
 	public $offline_image = '';
-	public $sitename = 'my web site';
+	public $sitename = 'sfsdfsdf';
 	public $editor = 'tinymce';
 	public $captcha = '0';
 	public $list_limit = '20';
@@ -12,13 +12,13 @@ class JConfig {
 	public $debug = '0';
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
-	public $host = 'localhost:3306';
-	public $user = 'root';
-	public $password = 'root';
-	public $db = 'joomla';
-	public $dbprefix = 'o2we3_';
+	public $host = 'localhost';
+	public $user = 'azure';
+	public $password = 'password';
+	public $db = 'azuredb';
+	public $dbprefix = 'y517y_';
 	public $live_site = '';
-	public $secret = 'DfyLAHAHwoFPFCU5';
+	public $secret = 'hNzDOVb01Hqv35CM';
 	public $gzip = '0';
 	public $error_reporting = 'default';
 	public $helpurl = 'https://help.joomla.org/proxy/index.php?keyref=Help{major}{minor}:{keyref}';
@@ -31,8 +31,8 @@ class JConfig {
 	public $offset = 'UTC';
 	public $mailonline = '1';
 	public $mailer = 'mail';
-	public $mailfrom = 'sdfsd@sd.com';
-	public $fromname = 'dfgdfg';
+	public $mailfrom = 'sdfsdf@sfsd.com';
+	public $fromname = 'sfsdfsdf';
 	public $sendmail = '/usr/sbin/sendmail';
 	public $smtpauth = '0';
 	public $smtpuser = '';
@@ -56,29 +56,38 @@ class JConfig {
 	public $unicodeslugs = '0';
 	public $feed_limit = '10';
 	public $feed_email = 'none';
-	public $log_path = 'C:\\inetpub\\wwwroot\\joomla\\administrator/logs';
-	public $tmp_path = 'C:\\inetpub\\wwwroot\\joomla/tmp';
+	public $log_path = 'D:\\home\\site\\wwwroot\\administrator/logs';
+	public $tmp_path = 'D:\\home\\site\\wwwroot/tmp';
 	public $lifetime = '15';
 	public $session_handler = 'database';
-}
+	
+	//Uncomment this constructore to support using Environment variables
+	/*
+	public function __construct(){
+	     $connectstr_dbhost = '';
+		$connectstr_dbname = '';
+		$connectstr_dbusername = '';
+		$connectstr_dbpassword = '';
+		foreach ($_SERVER as $key => $value) {
+			if (strpos($key, "MYSQLCONNSTR_") !== 0) {
+				continue;
+			}
+			
+			$connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+			$connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+			$connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+			$connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+		}
 
-$connectstr_dbhost = '';
-$connectstr_dbname = '';
-$connectstr_dbusername = '';
-$connectstr_dbpassword = '';
-foreach ($_SERVER as $key => $value) {
-    if (strpos($key, "MYSQLCONNSTR_") !== 0) {
-        continue;
+        $this->user = $connectstr_dbusername;
+        $this->host=$connectstr_dbhost;
+        $this->password= $connectstr_dbpassword;
+        $this->db= $connectstr_dbname;
+        
     }
+    */
     
-    $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-    $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
-    $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
-    $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
 
-$config = new JConfig();
-$config-> set('host',$connectstr_dbhost);
-$config-> set('db',$connectstr_dbname);
-$config-> set('user',$connectstr_dbusername);
-$config-> set('password',$connectstr_dbpassword);
+
+		
