@@ -1,7 +1,10 @@
 #Joomla for Azure  [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
+This repository contains Joomla application that can run on Azure app service with both ClearDB and MySQL inapp. If you wish to use MySQL inapp , it is recommended to use Environment variables. 
 
 To use Environment variables with Joomla application to pass in the database information , add the following constructor in configuration.php inside JConig class. To use this with [MySQL in app feature](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/),  use the $_SERVER['MYSQLCONNSTR_localdb]' variable to get the database connection string. 
+
+Add this code to configuration.php file if using **MySQL in-app** 
 ```
 public function __construct(){
 	  $connectstr_dbhost = '';
