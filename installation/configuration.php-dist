@@ -101,6 +101,8 @@ class JConfig
 
 
 	//Uncomment this constructore to support using Environment variables
+		
+	/*
 	public function __construct(){
 	     $connectstr_dbhost = '';
 		$connectstr_dbname = '';
@@ -119,7 +121,6 @@ class JConfig
         $this->host=$connectstr_dbhost;
         $this->password= $connectstr_dbpassword;
         $this->db= $connectstr_dbname;
-    }
-
+    }*/
     
 }
