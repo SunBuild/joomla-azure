@@ -69,7 +69,7 @@ class JConfig {
 		$connectstr_dbusername = '';
 		$connectstr_dbpassword = '';
 		foreach ($_SERVER as $key => $value) {
-			if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+			if (strpos($key, "MYSQLCONNSTR") !== 0) {
 				continue;
 			}
 			
