@@ -243,7 +243,7 @@ abstract class JUserHelper
 			->from($db->quoteName('#__users'))
 			->where($db->quoteName('activation') . ' = ' . $db->quote($activation))
 			->where($db->quoteName('block') . ' = 1')
-			->where($db->quoteName('lastvisitDate') . ' = ' . $db->quote('0000-00-00 00:00:00'));
+			->where($db->quoteName('lastvisitDate') . ' = ' . $db->quote($db->getNullDate()));
 		$db->setQuery($query);
 		$id = (int) $db->loadResult();
 
@@ -810,5 +810,30 @@ abstract class JUserHelper
 		$uaShort = str_replace($browserVersion, 'abcd', $uaString);
 
 		return md5(JUri::base() . $uaShort);
+	}
+
+	/**
+	 * Check if there is a super user in the user ids.
+	 *
+	 * @param   array   $userIds  An array of user IDs on which to operate
+	 *
+	 * @return  boolean  True on success, false on failure
+	 *
+	 * @since   3.6.5
+	 */
+	public static function checkSuperUserInUsers(array $userIds)
+	{
+		foreach ($userIds as $userId)
+		{
+			foreach (static::getUserGroups($userId) as $userGroupId)
+			{
+				if (JAccess::checkGroup($userGroupId, 'core.admin'))
+				{
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 }

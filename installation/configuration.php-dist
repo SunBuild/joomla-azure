@@ -1,24 +1,45 @@
 <?php
-class JConfig {
+/**
+ * @package    Joomla.Installation
+ *
+ * @copyright  Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ *
+ * -------------------------------------------------------------------------
+ * THIS SHOULD ONLY BE USED AS A LAST RESORT WHEN THE WEB INSTALLER FAILS
+ *
+ * If you are installing Joomla! manually i.e. not using the web browser installer
+ * then rename this file to configuration.php e.g.
+ *
+ * UNIX -> mv configuration.php-dist configuration.php
+ * Windows -> rename configuration.php-dist configuration.php
+ *
+ * Now edit this file and configure the parameters for your site and
+ * database.
+ */
+class JConfig
+{
+	/* Site Settings */
 	public $offline = '0';
-	public $offline_message = 'This site is down for maintenance.<br />Please check back again soon.';
+	public $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
 	public $display_offline_message = '1';
 	public $offline_image = '';
-	public $sitename = 'sfsdfsdf';
+	public $sitename = 'Joomla!';            // Name of Joomla site
 	public $editor = 'tinymce';
 	public $captcha = '0';
 	public $list_limit = '20';
 	public $access = '1';
-	public $debug = '0';
-	public $debug_lang = '0';
-	public $dbtype = 'mysqli';
-	public $host = 'localhost';
-	public $user = 'azure';
-	public $password = 'password';
-	public $db = 'azuredb';
-	public $dbprefix = 'y517y_';
-	public $live_site = '';
-	public $secret = 'hNzDOVb01Hqv35CM';
+
+	/* Database Settings */
+	public $dbtype = 'mysqli';               // Normally mysqli
+	public $host = 'localhost';              // This is normally set to localhost
+	public $user = '';                       // DB username
+	public $password = '';                   // DB password
+	public $db = '';                         // DB database name
+	public $dbprefix = 'jos_';               // Do not change unless you need to!
+
+	/* Server Settings */
+	public $secret = 'FBVtggIk5lAzEU9H';     // Change this to something more secure
 	public $gzip = '0';
 	public $error_reporting = 'default';
 	public $helpurl = 'https://help.joomla.org/proxy/index.php?keyref=Help{major}{minor}:{keyref}';
@@ -27,42 +48,60 @@ class JConfig {
 	public $ftp_user = '';
 	public $ftp_pass = '';
 	public $ftp_root = '';
-	public $ftp_enable = '0';
+	public $ftp_enable = '';
+	public $tmp_path = '/tmp';                // Please check with your host that this is the correct path to the temp directory. This path needs to be writable by Joomla!
+	public $log_path = '/var/logs';           // Please check with your host that this is the correct path to the logs directory. This path needs to be writable by Joomla!
+	public $live_site = '';                   // Optional, full url to Joomla install.
+	public $force_ssl = 0;                    // Force areas of the site to be SSL ONLY.  0 = None, 1 = Administrator, 2 = Both Site and Administrator
+
+	/* Locale Settings */
 	public $offset = 'UTC';
-	public $mailonline = '1';
+
+	/* Session settings */
+	public $lifetime = '15';                  // Session time
+	public $session_handler = 'database';
+
+	/* Mail Settings */
 	public $mailer = 'mail';
-	public $mailfrom = 'sdfsdf@sfsd.com';
-	public $fromname = 'sfsdfsdf';
+	public $mailfrom = '';
+	public $fromname = '';
 	public $sendmail = '/usr/sbin/sendmail';
 	public $smtpauth = '0';
 	public $smtpuser = '';
 	public $smtppass = '';
 	public $smtphost = 'localhost';
-	public $smtpsecure = 'none';
-	public $smtpport = '25';
+
+	/* Cache Settings */
 	public $caching = '0';
-	public $cache_handler = 'file';
 	public $cachetime = '15';
+	public $cache_handler = 'file';
 	public $cache_platformprefix = '0';
-	public $MetaDesc = '';
-	public $MetaKeys = '';
+
+	/* Debug Settings */
+	public $debug = '0';
+	public $debug_lang = '0';
+
+	/* Meta Settings */
+	public $MetaDesc = 'Joomla! - the dynamic portal engine and content management system';
+	public $MetaKeys = 'joomla, Joomla';
 	public $MetaTitle = '1';
 	public $MetaAuthor = '1';
 	public $MetaVersion = '0';
 	public $robots = '';
+
+	/* SEO Settings */
 	public $sef = '1';
 	public $sef_rewrite = '0';
 	public $sef_suffix = '0';
 	public $unicodeslugs = '0';
-	public $feed_limit = '10';
+
+	/* Feed Settings */
+	public $feed_limit = 10;
 	public $feed_email = 'none';
-	public $log_path = 'D:\\home\\site\\wwwroot\\administrator/logs';
-	public $tmp_path = 'D:\\home\\site\\wwwroot/tmp';
-	public $lifetime = '15';
-	public $session_handler = 'database';
-	
+
+
 	//Uncomment this constructore to support using Environment variables
-	/*
+	/* 
 	public function __construct(){
 	     $connectstr_dbhost = '';
 		$connectstr_dbname = '';
@@ -72,22 +111,15 @@ class JConfig {
 			if (strpos($key, "MYSQLCONNSTR_") !== 0) {
 				continue;
 			}
-			
 			$connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
 			$connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
 			$connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
 			$connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 		}
-
         $this->user = $connectstr_dbusername;
         $this->host=$connectstr_dbhost;
         $this->password= $connectstr_dbpassword;
         $this->db= $connectstr_dbname;
-        
-    }
-    */
+    }*/
     
 }
-
-
-		
