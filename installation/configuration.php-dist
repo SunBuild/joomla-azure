@@ -101,15 +101,14 @@ class JConfig
 
 
 	//Uncomment this constructore to support using Environment variables
-		
-	/*
+
 	public function __construct(){
 	     $connectstr_dbhost = '';
 		$connectstr_dbname = '';
 		$connectstr_dbusername = '';
 		$connectstr_dbpassword = '';
 		foreach ($_SERVER as $key => $value) {
-			if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+			if (strpos($key, "MYSQLCONNSTR_") !== 0) {
 				continue;
 			}
 			$connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
@@ -121,6 +120,6 @@ class JConfig
         $this->host=$connectstr_dbhost;
         $this->password= $connectstr_dbpassword;
         $this->db= $connectstr_dbname;
-    }*/
+    }
     
 }
