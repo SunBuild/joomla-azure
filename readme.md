@@ -1,4 +1,4 @@
-#Joomla for Azure  [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+# Joomla for Azure  [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
 This repository contains Joomla application that can run on Azure app service with both ClearDB and MySQL inapp. If you wish to use MySQL inapp , it is recommended to use Environment variables. 
 
